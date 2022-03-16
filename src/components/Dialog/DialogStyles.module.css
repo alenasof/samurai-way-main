@@ -9,6 +9,7 @@
 .dialog{
    color: #282c34;
     padding: 20px;
+    text-decoration: none;
 
 }
 .dialogs_messages{
@@ -18,3 +19,7 @@
     padding: 20px;
 
 }
+.link{
+    text-decoration: none;
+}
+

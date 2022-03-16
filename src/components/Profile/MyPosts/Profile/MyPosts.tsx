@@ -1,19 +1,25 @@
-import React from 'react';
+import React from "react";
 import Post from "./Post/Post";
-import './MyPosts.css'
+import styles from "./MyPosts.module.css";
+import { arrPost } from "../../Profile";
 
-    const MyPosts = () => {
-                return (
-                        <div>
-                            <div>
-                            <div>my posts</div>
-                            <textarea/>
-                            < button>add post</button>
-                           </div>
-                            <Post message = {'Hi, how are you'} />
-                            <Post message = {'My name is'} />
-                        </div>
-                );
-            };
+type MyPostsPropsType = {
+  posts: Array<arrPost>;
+};
+
+
+const MyPosts: React.FC<MyPostsPropsType> = (props) => {
+  const postItems = props.posts.map((post, index) => (
+    <Post key={index} message={post.message} />
+  ));
+  return (
+    <div>
+      <h3>My posts</h3>
+      <textarea className={styles.textarea} />
+      <button className={styles.button}>add post</button>
+      {postItems}
+    </div>
+  );
+};
 
 export default MyPosts;
